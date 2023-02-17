@@ -68,6 +68,14 @@ body {
     transition: background-color 
   }
 
+  .clear-btn, .remove-btn nav button:hover {
+    background-color: #0062cc;
+  }
+  
+  .clear-btn, .remove-btn nav button:active {
+    background-color: #005cbf;
+  }
+
   .remove-btn {
     background-color: #7b0000;
     color: #fff;
