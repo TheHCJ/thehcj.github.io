@@ -1,74 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gift List Creator</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Wishlist</title>
   </head>
   <body>
-    <header>
-      <h1>Gift List Maker</h1>
-      <nav>
-        <button class="clear-btn" id="clear-btn"><i class="fa-solid fa-trash"></i></button>
-        <button id="save-btn"><i class="fa-solid fa-floppy-disk"></i></button>
-      </nav>
-    </header>
-    <div class="wrapper">
-      <form id="add-form">
-        <input type="text" id="new-item" placeholder="Add new item">
-        <button type="submit"><i class="fas fa-plus"></i></button>
-      </form>
-      <ul id="my-list"></ul>
-    </div>
-   
-    <script>
-      const addItem = () => {
-        const newItem = document.getElementById("new-item").value;
-        const list = document.getElementById("my-list");
-        const li = document.createElement("li");
-        li.textContent = newItem;
-        const removeBtn = document.createElement("button");
-        removeBtn.innerText = "X";
-        removeBtn.classList = "remove-btn"
-        removeBtn.onclick = () => {
-          list.removeChild(li);
-        };
-        li.appendChild(removeBtn);
-        list.appendChild(li);
-        document.getElementById("new-item").value = "";
-        return false;
-      };
-      
-      const saveFile = () => {
-        const html = document.documentElement.outerHTML;
-        const file = new Blob([html], {type: "text/html"});
-        const a = document.createElement("a");
-        const url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = "my-list.html";
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(() => {
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);  
-        }, 0);
-      };
-      
-      const clearList = () => {
-        const list = document.getElementById("my-list");
-        list.innerHTML = "";
-      };
+    <h1>My Wishlist</h1>
+    <form>
+      <label for="product-url">Product URL:</label>
+      <input type="text" id="product-url" name="product-url"><br><br>
+      <label for="product-name">Product Name:</label>
+      <input type="text" id="product-name" name="product-name"><br><br>
+      <label for="product-price">Product Price:</label>
+      <input type="text" id="product-price" name="product-price"><br><br>
+      <input type="submit" value="Add to Wishlist">
+    </form>
+    
+    <h2>My Wishlist Items:</h2>
+    <ul id="wishlist">
+      <!-- Wishlist items will be dynamically added here -->
+    </ul>
 
-      document.getElementById("add-form").addEventListener("submit", (event) => {
+    <script>
+      // Add event listener for form submission
+      document.querySelector('form').addEventListener('submit', function(event) {
         event.preventDefault();
-        addItem();
-      });
-      document.getElementById("save-btn").addEventListener("click", () => {
-        saveFile();
-      });
-      document.getElementById("clear-btn").addEventListener("click", () => {
-        clearList();
+        
+        // Get input values
+        const url = document.querySelector('#product-url').value;
+        const name = document.querySelector('#product-name').value;
+        const price = document.querySelector('#product-price').value;
+        
+        // Create new wishlist item
+        const item = document.createElement('li');
+        item.innerHTML = `
+          <a href="${url}">${name}</a> - $${price}
+        `;
+        
+        // Add item to wishlist
+        document.querySelector('#wishlist').appendChild(item);
+        
+        // Clear form inputs
+        document.querySelector('#product-url').value = '';
+        document.querySelector('#product-name').value = '';
+        document.querySelector('#product-price').value = '';
       });
     </script>
   </body>
