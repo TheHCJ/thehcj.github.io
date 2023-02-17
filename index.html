@@ -87,17 +87,17 @@
   </head>
   <body>
     <header>
-      <h1>My Wishlist</h1>
+      <h1>Wishlist Creator</h1>
     </header>
     
     <form>
       <label for="product-url">Product URL:</label>
-      <input type="text" id="product-url" name="product-url">
+      <input type="url" id="product-url" name="product-url">
       <label for="product-name">Product Name:</label>
       <input type="text" id="product-name" name="product-name">
       <label for="product-price">Product Price:</label>
-      <input type="text" id="product-price" name="product-price">
-      <input type="submit" value="Add to Wishlist">
+      <input type="number" id="product-price" name="product-price">
+      <input type="submit" value="+">
     </form>
     
     <h2>My Wishlist Items:</h2>
@@ -118,7 +118,7 @@
         // Create new wishlist item
         const item = document.createElement('li');
         item.innerHTML = `
-          <a href="${url}">${name}</a> - $${price}
+          <a href="${url}">${name}</a> - ${price}
         `;
         
         // Add item to wishlist
