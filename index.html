@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gift List Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Font Awesome/css/all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header>
+      <h1>Gift List Maker</h1>
+      <nav>
+        <button class="clear-btn" id="clear-btn">Clear</button>
+        <button id="save-btn">Save</button>
+        <button id="dropbox-upload-btn">Upload to Dropbox</button>
+      </nav>
+    </header>
+    <div class="wrapper">
+      <form id="add-form">
+        <input type="text" id="new-item" placeholder="Add new item">
+        <button type="submit"><i class="fas fa-plus"></i></button>
+      </form>
+      <ul id="my-list"></ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropbox.js/4.0.31/Dropbox-sdk.min.js" integrity="sha512-Jmb5dn5o7VxvCFM5b7g4fQ2uNlHwCHNNZAl+YrYg2QlQk/mHxam9AFk7pppHeAKh+sDdc+e6q3W6Uitn6UJF6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      const addItem = () => {
+        const newItem = document.getElementById("new-item").value;
+        const list = document.getElementById("my-list");
+        const li = document.createElement("li");
+        li.textContent = newItem;
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "x";
+        removeBtn.classList = "remove-btn"
+        removeBtn.onclick = () => {
+          list.removeChild(li);
+        };
+        li.appendChild(removeBtn);
+        list.appendChild(li);
+        document.getElementById("new-item").value = "";
+        return false;
+      };
+      
+      const saveFile = () => {
+        const html = document.documentElement.outerHTML;
+        const file = new Blob([html], {type: "text/html"});
+        const a = document.createElement("a");
+        const url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = "my-list.html";
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);  
+        }, 0);
+      };
+      
+      const clearList = () => {
+        const list = document.getElementById("my-list");
+        list.innerHTML = "";
+      };
+      
+      const uploadToDropbox = async () => {
+        const ACCESS_TOKEN = "sl.BZA5pVooFmDKLadacBk2aNxDQsaOtr9-Qmc4iIIgu1eu4TZRoPPaSHMqwh4NvG7wsMPnH3t5VCawIzGD08TtMOXemi5SARtDp1uQjpcUr1XL_t-g_C2rYEXObqJt61IxUBFqmHzvLKH1";
+        const dbx = new Dropbox.Dropbox({ accessToken: ACCESS_TOKEN });
+        const html = document.documentElement.outerHTML;
+        try {
+          const response = await dbx.filesUpload({
+            path: "/my-list.html",
+            contents: html,
+            mode: { ".tag": "overwrite" },
+          });
+          console.log(response);
+          alert("File uploaded to Dropbox!");
+        } catch (error) {
+          console.error(error);
+          alert("Error uploading file to Dropbox.");
+        }
+      }
+    document.getElementById("add-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      addItem();
+    });
+    document.getElementById("save-btn").addEventListener("click", () => {
+      saveFile();
+    });
+    document.getElementById("clear-btn").addEventListener("click", () => {
+      clearList();
+    });
+    </script>
+  </body>
+</html>
