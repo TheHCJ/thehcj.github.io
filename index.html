@@ -3,7 +3,7 @@
   <head>
     <title>Gift List Creator</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="Font Awesome/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -30,7 +30,7 @@
         const li = document.createElement("li");
         li.textContent = newItem;
         const removeBtn = document.createElement("button");
-        removeBtn.innerTextf = "X";
+        removeBtn.innerText = "X";
         removeBtn.classList = "remove-btn"
         removeBtn.onclick = () => {
           list.removeChild(li);
