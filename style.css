@@ -98,36 +98,36 @@ body {
 
   /* Dark Mode */
 
-  .dark-theme {
-    margin: 0;
-    padding: 0;
-    font-family: "Open Sans", sans-serif;
-    font-size: 18px;
-    color: #fff;
-    background-color: #121212;
-  }
-  
-  .dark-theme header {
-    background-color: #1E1E1E;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .dark-theme .wrapper {
-    background-color: #1E1E1E;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-  }
-  
-  .dark-theme input {
-    background-color: #1F1F1F;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    padding: 10px;
-    width: 100%;
-    font-size: 16px;
-  }
+.dark-theme {
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+}
+
+.dark-theme header {
+  background-color: #262626;
+}
+
+.dark-theme h1 {
+  color: #f2f2f2;
+}
+
+.dark-theme button {
+  background-color: #262626;
+  color: #f2f2f2;
+}
+
+.dark-theme input[type="text"],
+.dark-theme button[type="submit"] {
+  background-color: #262626;
+  color: #f2f2f2;
+}
+
+.dark-theme #my-list li {
+  background-color: #262626;
+  color: #f2f2f2;
+}
+
+.dark-theme #my-list li .remove-btn {
+  background-color: #3f3f3f;
+  color: #f2f2f2;
+}
