@@ -3,7 +3,7 @@
   <head>
     <title>Gift List Creator</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -12,7 +12,6 @@
       <nav>
         <button class="clear-btn" id="clear-btn"><i class="fa-solid fa-trash"></i></button>
         <button id="save-btn"><i class="fa-solid fa-floppy-disk"></i></button>
-        <button id="theme-switcher"><i class="fa-solid fa-circle-half-stroke"></i></button>
       </nav>
     </header>
     <div class="wrapper">
@@ -61,11 +60,6 @@
         list.innerHTML = "";
       };
 
-      const toggleTheme = () => {
-        const body = document.body;
-        body.classList.toggle("dark-theme");
-      };
-
       document.getElementById("add-form").addEventListener("submit", (event) => {
         event.preventDefault();
         addItem();
@@ -75,9 +69,6 @@
       });
       document.getElementById("clear-btn").addEventListener("click", () => {
         clearList();
-      });
-      document.getElementById("theme-switcher").addEventListener("click", () => {
-        toggleTheme();
       });
     </script>
   </body>

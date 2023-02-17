@@ -1,4 +1,3 @@
-/* Light Mode */
 body {
     margin: 0;
     padding: 0;
@@ -95,39 +94,3 @@ body {
     cursor: pointer;
     transition: background-color 
   }
-
-  /* Dark Mode */
-
-.dark-theme {
-  background-color: #1a1a1a;
-  color: #f2f2f2;
-}
-
-.dark-theme header {
-  background-color: #262626;
-}
-
-.dark-theme h1 {
-  color: #f2f2f2;
-}
-
-.dark-theme button {
-  background-color: #262626;
-  color: #f2f2f2;
-}
-
-.dark-theme input[type="text"],
-.dark-theme button[type="submit"] {
-  background-color: #262626;
-  color: #f2f2f2;
-}
-
-.dark-theme #my-list li {
-  background-color: #262626;
-  color: #f2f2f2;
-}
-
-.dark-theme #my-list li .remove-btn {
-  background-color: #3f3f3f;
-  color: #f2f2f2;
-}
