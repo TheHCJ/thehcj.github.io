@@ -118,6 +118,7 @@
       <label for="product-price">Product Price:</label>
       <input type="number" id="product-price" name="product-price">
       <input type="submit" value="+">
+      <button type="button" id="save-button">Save Wishlist</button>
     </form>
     
     <h2>My Wishlist Items:</h2>
@@ -140,6 +141,8 @@
         item.innerHTML = `
           <a href="${url}">${name}</a> - ${price}
         `;
+
+        
         
         // Add item to wishlist
         document.querySelector('#wishlist').appendChild(item);
@@ -149,6 +152,36 @@
         document.querySelector('#product-name').value = '';
         document.querySelector('#product-price').value = '';
       });
+
+          // Add event listener for save button click
+      document.querySelector('#save-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        // Get current state of wishlist
+        const wishlistItems = document.querySelectorAll('#wishlist li');
+        const wishlistData = Array.from(wishlistItems).map(function(item) {
+          const url = item.querySelector('a').href;
+          const name = item.querySelector('a').textContent;
+          const price = item.textContent.replace(url + ' - ', '');
+          return { url, name, price };
+        });
+        
+        // Save wishlist data to localStorage
+        localStorage.setItem('wishlistData', JSON.stringify(wishlistData));
+      });
+      
+      // Load wishlist data from localStorage on page load
+      const storedWishlistData = localStorage.getItem('wishlistData');
+      if (storedWishlistData) {
+        const wishlistData = JSON.parse(storedWishlistData);
+        wishlistData.forEach(function(item) {
+          const newItem = document.createElement('li');
+          newItem.innerHTML = `
+            <a href="${item.url}">${item.name}</a> - ${item.price}
+          `;
+          document.querySelector('#wishlist').appendChild(newItem);
+        });
+      }
     </script>
   </body>
 </html>
