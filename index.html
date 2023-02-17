@@ -12,6 +12,7 @@
       <nav>
         <button class="clear-btn" id="clear-btn"><i class="fa-solid fa-trash"></i></button>
         <button id="save-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+        <button id="theme-switcher">Toggle Theme</button>
       </nav>
     </header>
     <div class="wrapper">
@@ -29,7 +30,7 @@
         const li = document.createElement("li");
         li.textContent = newItem;
         const removeBtn = document.createElement("button");
-        removeBtn.innerHTML = "<i class=";fa-solid ;fa-x;"></i>";
+        removeBtn.innerHTML = "<i class="fa-solid fa-x"></i>";
         removeBtn.classList = "remove-btn"
         removeBtn.onclick = () => {
           list.removeChild(li);
@@ -60,16 +61,24 @@
         list.innerHTML = "";
       };
 
-    document.getElementById("add-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      addItem();
-    });
-    document.getElementById("save-btn").addEventListener("click", () => {
-      saveFile();
-    });
-    document.getElementById("clear-btn").addEventListener("click", () => {
-      clearList();
-    });
+      const toggleTheme = () => {
+        const body = document.body;
+        body.classList.toggle("dark-theme");
+      };
+
+      document.getElementById("add-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        addItem();
+      });
+      document.getElementById("save-btn").addEventListener("click", () => {
+        saveFile();
+      });
+      document.getElementById("clear-btn").addEventListener("click", () => {
+        clearList();
+      });
+      document.getElementById("theme-switcher").addEventListener("click", () => {
+        toggleTheme();
+      });
     </script>
   </body>
 </html>
