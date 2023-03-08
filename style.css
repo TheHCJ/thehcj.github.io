@@ -1,8 +1,11 @@
+@import "fonts/import.css";
+
 body {
     background-color: black;
-  }
+}
   
-  h1, h2, h3 {
+  h1, h2, h3, p {
+    font-family: SourceCodePro;
     color: white;
-    margin-left: 20px;
+    text-align: center;
   }
