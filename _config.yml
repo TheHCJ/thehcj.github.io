@@ -1,3 +1,5 @@
+include: [".well-known"]
+
 title: Harley's Blog
 markdown: kramdown
 # url: ""
