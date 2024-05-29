@@ -1,14 +1,13 @@
 include: [".well-known"]
 
-title: Harley's Blog
+title: TheHCJ's Blog
 markdown: kramdown
 # url: ""
 # baseurl: "/jekyll-theme-material-you"
 
 # for atom feed
 author:
-  name: Harley Jones
-  email: HarleyCJ@proton.me
+  name: TheHCJ
 
 plugins:
   - jemoji

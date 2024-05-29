@@ -1,21 +1,18 @@
-name: Harley
-dp: https://github.com/thehcj.png?size=460
+name: TheHCJ
+dp: https://github.com/TheHCJ.png?size=460
 description: "
   <p>
-    I am Harley and I like contributing to open source software
+    I am TheHCJ and I like contributing to open source software
   </p>
   <br/>
   <p>
     I would really appreciate a follow on <a href='https://github.com/TheHCJ' target='_blank'>Github</a>
   </P>
 "
-email: HarleyCJ@proton.me
 contact:
   - title: github
     url: https://github.com/TheHCJ
-  - title: twitter
-    url: https://x.com/FairCoder
   - title: mastodon
     url: https://fosstodon.org/@hcj
-  - title: email
-    url: mailto:HarleyCJ@proton.me
+  - title: bluesky
+    url: https://bsky.app/profile/did:plc:5f2c6awh4ffekm7srmi4d6zg
