@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'R18Inter';
+    src: url('assets/fonts/Inter/static/Inter_18pt-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'B28Inter';
+    src: url('assets/fonts/Inter/static/Inter_28pt-Bold.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'SB24Inter';
+    src: url('assets/fonts/Inter/static/Inter_24pt-SemiBold.ttf')  format('truetype');
+}
+
+
+body {
+    background-color: #191970;
+    font-family: 'R18Inter';
+    color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'B28Inter';
+}
+
+h2 {
+    font-family: 'SB24Inter';
+}
+
+.links {
+    display: inline-block;
+    width: clamp(18rem, 50vw, 30rem);
+}
+
+.links ul {
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.links ul li {
+    background-color: #FAF9F6;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 15rem;
+    font-family: 'SB24Inter';
+}
+
+.links ul li a {
+    text-decoration: none;
+    color: #191970;
+}
