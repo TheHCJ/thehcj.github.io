@@ -29,6 +29,10 @@ h2 {
     font-family: 'SB24Inter';
 }
 
+li {
+    color: #191970;
+}
+
 .links {
     display: inline-block;
     width: clamp(18rem, 50vw, 30rem);
@@ -49,6 +53,6 @@ h2 {
 }
 
 .links ul li a {
-    text-decoration: none;
     color: #191970;
+    text-decoration: none;
 }
