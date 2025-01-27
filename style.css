@@ -15,10 +15,10 @@
 
 
 body {
-    background-color: #191970;
+    background-color: rebeccapurple;
     font-family: 'R18Inter';
     color: #ffffff;
-    text-align: center;
+    padding: 10vw;
 }
 
 h1 {
@@ -29,10 +29,6 @@ h2 {
     font-family: 'SB24Inter';
 }
 
-li {
-    color: #191970;
-}
-
 .links {
     display: inline-block;
     width: clamp(18rem, 50vw, 30rem);
@@ -40,19 +36,38 @@ li {
 
 .links ul {
     list-style: none;
-    margin-left: 0px;
-    padding-left: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .links ul li {
     background-color: #FAF9F6;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 15rem;
+    padding: 1vh;
+    margin: 1vh;
+    border-radius: 1em;
     font-family: 'SB24Inter';
 }
 
-.links ul li a {
-    color: #191970;
+.favimg {
+    position: flex;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    align-items: start;
+}
+
+.links ul li, a {
+    color: black;
     text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+ul li.with-image {
+    display: flex;
+    align-items: center;
+}
+
+ul li.with-image img {
+    margin-right: 10px;
 }
