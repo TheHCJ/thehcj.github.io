@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 21 Feb 2025 12:07:18 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to Host a Nostr Relay (for Free!)</title>
+      <title>How to Host a Nostr Relay (for Free*)</title>
       <link>http://localhost:1313/posts/how-to-host-a-nostr-relay-for-free/</link>
       <pubDate>Fri, 21 Feb 2025 12:07:18 +0000</pubDate>
       <guid>http://localhost:1313/posts/how-to-host-a-nostr-relay-for-free/</guid>
-      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;I love the nostr protocol and I wanted to host a relay. I was going to do this on my raspberry pi but I knew I wouldn&amp;rsquo;t be able to keep it online 24/7. I didn&amp;rsquo;t want to pay for a VPS to host it for me so I looked for a 100% free way to host it, nostr relays are super fast and light so I wasn&amp;rsquo;t concered about ram limits or cpu limits!&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;I love the nostr protocol and I wanted to host a relay. I was going to do this on my raspberry pi but I knew I wouldn&amp;rsquo;t be able to keep it online 24/7. I didn&amp;rsquo;t want to pay for a VPS to host it for me so I looked for a 100% free way to host it, nostr relays are super fast and light so I wasn&amp;rsquo;t concerned about ram limits or cpu limits!&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
