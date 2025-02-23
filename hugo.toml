@@ -35,4 +35,4 @@ theme = "paper"
   appleTouchIcon = "apple-touch-icon.png"   # customize the default Apple touch icon
 
   # RTL supprot
-  direction = "rtl"                         # RTL support for Right-to-left languages
+  # direction = "rtl"                         # RTL support for Right-to-left languages
