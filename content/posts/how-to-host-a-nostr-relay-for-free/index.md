@@ -6,7 +6,7 @@ title = 'How to Host a Nostr Relay (for Free*)'
 ## Background
 I love the nostr protocol and I wanted to host a relay. I was going to do this on my raspberry pi but I knew I wouldn't be able to keep it online 24/7. I didn't want to pay for a VPS to host it for me so I looked for a 100% free way to host it, nostr relays are super fast and light so I wasn't concerned about ram limits or cpu limits!
 
-So in my search I found [render](https://onrender.com), a service mainly for serverless hosting of static sites. As it turns out they have a way to deploy docker containers on their free tier. This is how I was able to setup [relay.harljo.uk](https://relay.harljo.uk) for completely free (no credit card required!)
+So in my search I found [render](https://onrender.com), a service mainly for serverless hosting of static sites. As it turns out they have a way to deploy docker containers on their free tier. This is how I was able to setup relay.harljo.uk (relay offline!) for completely free (no credit card required!)
 
 ## There are some *issues* with this though...
 
