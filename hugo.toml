@@ -1,7 +1,7 @@
 baseURL = 'https://harljo.uk/'
 languageCode = 'en-us'
 title = "Harley's Blog"
-theme = "paper"
+theme = "PaperMod"
 
 [params]
   # color style
@@ -18,7 +18,7 @@ theme = "paper"
   rss = true                                # show rss icon
 
   # home page profile
-  avatar = 'hj894747@gmail.com'                 # gravatar email or image url
+  avatar = 'https://github.com/TheHCJ.png'                 # gravatar email or image url
   name = 'Harley'
   bio = 'I am a technologist who likes yapping about social media protocols'
 
