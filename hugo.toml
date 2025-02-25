@@ -24,25 +24,43 @@ theme = "PaperMod"
     Title = "Harley"
     Content = "I am a technologist who likes yapping about social media protocols."
 
-  # Social Icons
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/HarlJo"
-  [[params.socialIcons]]
-    name = "instagram"
-    url = "https://instagram.com/itsharljo"
-  [[params.socialIcons]]
-    name = "mastodon"
-    url = "https://fosstodon.org/@hcj"
-  [[params.socialIcons]]
-    name = "threads"
-    url = "https://threads.net/@itsharljo"
-  [[params.socialIcons]]
-    name = "bluesky"
-    url = "https://bsky.app/profile/harljo.uk"
-  [[params.socialIcons]]
-    name = "rss"
-    url = "/index.xml"
+    [[params.social]]
+      icon = "github"
+      icon_pack = "fab"
+      url = "https://github.com/HarlJo"
+      name = "GitHub"
+
+    [[params.social]]
+      icon = "instagram"
+      icon_pack = "fab"
+      url = "https://instagram.com/itsharljo"
+      name = "Instagram"
+
+    [[params.social]]
+      icon = "mastodon"
+      icon_pack = "fab"
+      url = "https://fosstodon.org/@hcj"
+      name = "Mastodon"
+
+    [[params.social]]
+      icon = "threads"
+      icon_pack = "custom"
+      url = "https://threads.net/@itsharljo"
+      name = "Threads"
+
+    [[params.social]]
+      icon = "bluesky"
+      icon_pack = "custom"
+      url = "https://bsky.app/profile/harljo.uk"
+      name = "Bluesky"
+
+    [[params.social]]
+      icon = "rss"
+      icon_pack = "fas"
+      url = "/index.xml"
+      name = "RSS Feed"
+
+
 
   # Miscellaneous
   disableHLJS = true                        # Disable highlight.js
