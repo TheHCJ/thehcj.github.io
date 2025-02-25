@@ -4,35 +4,70 @@ title = "Harley's Blog"
 theme = "PaperMod"
 
 [params]
-  # color style
+  # Appearance
+  defaultTheme = "auto"                     # auto, light, dark
+  disableThemeToggle = false                # Enable/disable theme toggle
   color = 'linen'                           # linen, wheat, gray, light
 
-  # header social icons
-  # twitter = 'YOUR_TWITTER_ID'               # twitter.com/YOUR_TWITTER_ID
-  github = 'HarlJo'                 # github.com/YOUR_GITHUB_ID
-  instagram = 'itsharljo'           # instagram.com/YOUR_INSTAGRAM_ID
-  #linkedin = 'YOUR_LINKEDIN_ID'             # linkedin.com/in/YOUR_LINKEDIN_ID
-  mastodon = 'https://fosstodon.org/@hcj'           # e.g. 'https://mastodon.instance/@xxx'
-  threads = '@itsharljo'              # threads.net/@YOUR_THREADS_ID
-  bluesky = 'harljo.uk'               # https://bsky.app/profile/YOUR_BLUESKY_ID
-  rss = true                                # show rss icon
+  # Home Info
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowToc = true
+  comments = false
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = false
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  UseHugoToc = true
 
-  # home page profile
-  avatar = 'https://github.com/TheHCJ.png'                 # gravatar email or image url
-  name = 'Harley'
-  bio = 'I am a technologist who likes yapping about social media protocols'
+  [params.homeInfo]
+    Title = "Harley"
+    Content = "I am a technologist who likes yapping about social media protocols."
 
+  # Social Icons
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/HarlJo"
+  [[params.socialIcons]]
+    name = "instagram"
+    url = "https://instagram.com/itsharljo"
+  [[params.socialIcons]]
+    name = "mastodon"
+    url = "https://fosstodon.org/@hcj"
+  [[params.socialIcons]]
+    name = "threads"
+    url = "https://threads.net/@itsharljo"
+  [[params.socialIcons]]
+    name = "bluesky"
+    url = "https://bsky.app/profile/harljo.uk"
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
 
-  # misc
-  disableHLJS = true                        # disable highlight.js
-  disablePostNavigation = true              # disable post navigation
-  monoDarkIcon = true                       # show monochrome dark mode icon
-  gravatarCdn = 'https://cdn.v2ex.com/gravatar/'         # e.g. 'https://cdn.v2ex.com/gravatar/'
-  math = true                               # enable KaTeX math typesetting globally
-  localKatex = false                        # use local KaTeX js/css instead of CDN
-  # graphCommentId = "YOUR_GRAPH_COMMENT_ID"  # use graph comment (disqus alternative)
-  favicon = "favicon.ico"                   # customize the default favicon
-  appleTouchIcon = "apple-touch-icon.png"   # customize the default Apple touch icon
+  # Miscellaneous
+  disableHLJS = true                        # Disable highlight.js
+  monoDarkIcon = true                       # Use monochrome dark mode icon
+  math = true                               # Enable KaTeX math rendering
+  localKatex = false                        # Use local KaTeX instead of CDN
 
-  # RTL supprot
-  # direction = "rtl"                         # RTL support for Right-to-left languages
+  # Favicon
+  favicon = "favicon.ico"
+  appleTouchIcon = "apple-touch-icon.png"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+  # [[menu.main]]
+    # name = "About"
+    # url = "/about/"
+    # weight = 3
+  [[menu.main]]
+    name = "Python IDE"
+    url = "/ide/"
+    weight = 4
