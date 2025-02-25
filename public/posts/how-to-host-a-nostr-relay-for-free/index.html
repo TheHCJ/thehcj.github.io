@@ -56,7 +56,7 @@
   class="not-ready lg:text-base"
   style="--bg: #faf8f1"
   lang="en-us"
-  dir="rtl"
+  dir="ltr"
 >
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
@@ -348,7 +348,7 @@ I love the nostr protocol and I wanted to host a relay. I was going to do this o
 
   <section><h2 id="background">Background</h2>
 <p>I love the nostr protocol and I wanted to host a relay. I was going to do this on my raspberry pi but I knew I wouldn&rsquo;t be able to keep it online 24/7. I didn&rsquo;t want to pay for a VPS to host it for me so I looked for a 100% free way to host it, nostr relays are super fast and light so I wasn&rsquo;t concerned about ram limits or cpu limits!</p>
-<p>So in my search I found <a href="https://onrender.com">render</a>, a service mainly for serverless hosting of static sites. As it turns out they have a way to deploy docker containers on their free tier. This is how I was able to setup <a href="https://relay.harljo.uk">relay.harljo.uk</a> for completely free (no credit card required!)</p>
+<p>So in my search I found <a href="https://onrender.com">render</a>, a service mainly for serverless hosting of static sites. As it turns out they have a way to deploy docker containers on their free tier. This is how I was able to setup relay.harljo.uk (relay offline!) for completely free (no credit card required!)</p>
 <h2 id="there-are-some-issues-with-this-though">There are some <em>issues</em> with this though&hellip;</h2>
 <h3 id="runtime-limits">Runtime limits</h3>
 <p>So at the moment your relay is small and likely isn&rsquo;t being used by many people, this use-case is fine for most people though it won’t work for medium-large sized relays. This is because render has a limit of 750 hours of runtime a month. 750 hours is roughly the same as running a server 24/7 for 31 days. This should be enough if you’re not running any other services with them. Otherwise, you’ll need to provide a credit card to cover the costs.</p>

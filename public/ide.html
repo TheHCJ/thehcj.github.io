@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python IDE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #editor { width: 80%; height: 300px; border: 1px solid #ccc; }
+        #output { width: 80%; height: 150px; border: 1px solid #ccc; margin-top: 10px; background: #f9f9f9; padding: 10px; overflow: auto; }
+        button { margin-top: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Python Web IDE</h2>
+    <textarea id="editor"></textarea>
+    <br>
+    <button onclick="saveCode()">Save</button>
+    <button onclick="loadCode()">Load Last</button>
+    <div id="output"></div>
+
+    <script>
+        const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "python",
+            lineNumbers: true,
+            autoCloseBrackets: true
+        });
+
+        const SUPABASE_URL = "YOUR_SUPABASE_URL"; // Replace with your Supabase Project URL
+        const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY"; // Replace with your Supabase Anon Key
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function saveCode() {
+            const code = editor.getValue();
+            const { data, error } = await supabase
+                .from("snippets")
+                .insert([{ code }]);
+
+            if (error) {
+                alert("Error saving code: " + error.message);
+            } else {
+                alert("Code saved successfully!");
+            }
+        }
+
+        async function loadCode() {
+            const { data, error } = await supabase
+                .from("snippets")
+                .select("code")
+                .order("created_at", { ascending: false })
+                .limit(1)
+                .single();
+
+            if (error) {
+                alert("Error loading code: " + error.message);
+            } else {
+                editor.setValue(data.code);
+            }
+        }
+    </script>
+</body>
+</html>

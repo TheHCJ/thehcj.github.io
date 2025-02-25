@@ -15,5 +15,12 @@
       <guid>http://localhost:1313/posts/how-to-host-a-nostr-relay-for-free/</guid>
       <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;I love the nostr protocol and I wanted to host a relay. I was going to do this on my raspberry pi but I knew I wouldn&amp;rsquo;t be able to keep it online 24/7. I didn&amp;rsquo;t want to pay for a VPS to host it for me so I looked for a 100% free way to host it, nostr relays are super fast and light so I wasn&amp;rsquo;t concerned about ram limits or cpu limits!&lt;/p&gt;</description>
     </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/why-i-built-an-online-python-ide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/why-i-built-an-online-python-ide/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
