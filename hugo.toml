@@ -51,8 +51,8 @@ theme = "PaperMod"
   localKatex = false                        # Use local KaTeX instead of CDN
 
   # Favicon
-  favicon = "favicon.ico"
-  appleTouchIcon = "apple-touch-icon.png"
+  favicon = "/favicon.ico"
+  appleTouchIcon = "/favicons/apple-touch-icon.png"
 
 [menu]
   [[menu.main]]
