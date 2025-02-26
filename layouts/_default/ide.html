@@ -1,63 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Python IDE | Harley&#39;s Blog</title>
-<meta name="keywords" content="">
-<meta name="description" content="Python IDE - Harley&#39;s Blog">
-<meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/ide/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/ide/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript>
-    <title>Python IDE</title>
-    
+<head>
+    {{ partial "head.html" . }}
+    <title>{{ .Title }}</title>
+    <!-- IDE-specific head content -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula/dracula.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.css">
@@ -204,68 +150,10 @@
     </style>
 </head>
 <body>
-    
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Harley&#39;s Blog (Alt + H)">Harley&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="http://localhost:1313/" title="Home">
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/posts/" title="Posts">
-                    <span>Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/ide/" title="Python IDE">
-                    <span class="active">Python IDE</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
+    {{ partial "header.html" . }}
     <div class="container">
-        <h1>Python IDE</h1>
-        
+        <h1>{{ .Title }}</h1>
+        {{ .Content }}
         <div class="toolbar">
             <button onclick="runCode()">Run ▶</button>
             <button onclick="saveCode()">Save</button>
@@ -313,13 +201,13 @@
     </div>
 
     <script>
-        
+        // Initialize Supabase client
         const supabaseClient = supabase.createClient(
             'https://gjjevzqihdzldkxlucjw.supabase.co',
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdqamV2enFpaGR6bGRreGx1Y2p3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0MzExMjYsImV4cCI6MjA1NjAwNzEyNn0.6ssXGyJch26dIq0zAcDgJfrnIo6JYi7Uah10A5iEcSM'
         );
 
-        
+        // Initialize CodeMirror
         const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
             mode: "python",
             theme: "dracula",
@@ -342,10 +230,10 @@
             }
         });
 
-        
+        // Set initial content
         editor.setValue("# Write your Python code here\nprint('Hello, World!')");
 
-        
+        // Initialize Pyodide
         let pyodide;
         async function initPyodide() {
             try {
@@ -384,7 +272,7 @@
         outputDiv.scrollTop = outputDiv.scrollHeight;
     }
 
-    
+    // Replace the existing runCode and input handling functions with these improved versions:
 
     async function getInputFromUser(prompt) {
     return new Promise((resolve) => {
@@ -410,14 +298,14 @@
         const handleInput = (e) => {
             if (e.key === "Enter") {
                 const value = inputField.value;
-                
+                // Show the complete input line
                 const responseDiv = document.createElement("div");
                 responseDiv.className = "python-input";
                 responseDiv.textContent = `${prompt}${value}`;
                 outputDiv.replaceChild(responseDiv, inputLine);
                 outputDiv.scrollTop = outputDiv.scrollHeight;
                 
-                
+                // Clean up and resolve with the input value
                 inputField.removeEventListener("keypress", handleInput);
                 resolve(value);
             }
@@ -437,7 +325,7 @@ async function runCode() {
     output(code, 'input');
     
     try {
-        
+        // Set up Python input/output handling
         await pyodide.runPythonAsync(`
 import sys
 import io
@@ -464,22 +352,22 @@ sys.stderr = WebIO()
 input = AsyncInput()
         `);
 
-        
+        // Make functions available to Python
         pyodide.globals.set('getInputFromUser', getInputFromUser);
         pyodide.globals.set('output', output);
 
-        
+        // Prepare code by converting input() calls to await input()
         const lines = code.split('\n');
         const processedCode = lines.map(line => {
             const trimmed = line.trimRight();
             if (trimmed.includes('input(')) {
-                
+                // Add await before input() calls
                 return trimmed.replace(/input\((.*?)\)/g, 'await input($1)');
             }
             return trimmed;
         }).join('\n');
 
-        
+        // Wrap the code in an async function
         const wrappedCode = `
 async def __run_user_code():
     try:
@@ -503,7 +391,7 @@ if result is not None:
     }
 }
 
-
+// Update the output function to handle HTML escaping
 function output(text, type = 'output') {
     const outputDiv = document.getElementById("output");
     const messageDiv = document.createElement("div");
@@ -525,7 +413,7 @@ function output(text, type = 'output') {
             break;
     }
     
-    
+    // Safely escape HTML but preserve whitespace
     const escaped = text.replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
@@ -539,7 +427,7 @@ function output(text, type = 'output') {
     outputDiv.scrollTop = outputDiv.scrollHeight;
 }
 
-        
+        // Clear output
         function clearOutput() {
             document.getElementById("output").innerHTML = "";
         }
@@ -547,7 +435,7 @@ function output(text, type = 'output') {
        
         
 
-        
+        // Save code function
         async function saveCode() {
             const code = editor.getValue();
             try {
@@ -572,12 +460,12 @@ function output(text, type = 'output') {
             }
         }
 
-        
+        // Share code function
         async function shareCode() {
             await saveCode();
         }
 
-        
+        // Load shared code if ID is present in URL
         async function loadSharedCode() {
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get('id');
@@ -600,10 +488,10 @@ function output(text, type = 'output') {
             }
         }
 
-        
+        // Load shared code on page load
         loadSharedCode();
 
-        
+        // Settings functions
     function toggleSettings() {
         const panel = document.getElementById('settings-panel');
         panel.classList.toggle('hidden');
@@ -611,11 +499,11 @@ function output(text, type = 'output') {
 
     function updateEditorOption(option, value) {
         if (option === 'theme') {
-            
+            // Load theme CSS if not already loaded
             loadThemeCSS(value);
         }
         editor.setOption(option, value);
-        
+        // Save settings to localStorage
         saveSettings();
     }
 
@@ -656,7 +544,7 @@ function output(text, type = 'output') {
             updateEditorOption('lineNumbers', settings.lineNumbers);
             updateEditorOption('lineWrapping', settings.lineWrapping);
             
-            
+            // Update UI to match loaded settings
             document.getElementById('theme-select').value = settings.theme;
             document.getElementById('font-size').value = parseInt(settings.fontSize);
             document.getElementById('tab-size').value = settings.tabSize;
@@ -665,127 +553,10 @@ function output(text, type = 'output') {
         }
     }
 
-    
+    // Load settings when editor is initialized
     document.addEventListener('DOMContentLoaded', loadSettings);
     </script>
 
-    
-<footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Harley&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-
+    {{ partial "footer.html" . }}
 </body>
 </html>

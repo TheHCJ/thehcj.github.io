@@ -8,8 +8,14 @@
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-02-25T12:07:18+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/posts/why-i-built-an-online-python-ide/</loc>
+    <lastmod>2025-02-25T12:07:18+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/ide/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/why-did-bluesky-succeed-and-others-like-it-failed/</loc>
+    <lastmod>2025-02-23T12:07:18+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/how-to-host-a-nostr-relay-for-free/</loc>
     <lastmod>2025-02-21T12:07:18+00:00</lastmod>
