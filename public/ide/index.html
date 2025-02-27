@@ -286,7 +286,6 @@
             <div class="setting-group">
                 <label>Theme:</label>
                 <select id="theme-select" onchange="updateEditorOption('theme', this.value)">
-                    <option value="dracula">Dracula</option>
                     <option value="monokai">Monokai</option>
                     <option value="material">Material</option>
                     <option value="night">Night</option>
@@ -329,7 +328,7 @@
         
         const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
             mode: "python",
-            theme: "dracula",
+            theme: "material",
             lineNumbers: true,
             autoCloseBrackets: true,
             indentUnit: 4,
