@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Python IDE | Harley&#39;s Blog</title>
+<title>Harley&#39;s Python IDE | Harley&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="Python IDE - Harley&#39;s Blog">
+<meta name="description" content="Harley&#39;s Python IDE - Harley&#39;s Blog">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/ide/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
@@ -56,7 +56,7 @@
 
     </style>
 </noscript>
-    <title>Python IDE</title>
+    <title>Harley&#39;s Python IDE</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula/dracula.min.css">
@@ -216,10 +216,20 @@
 
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+<script>
+    window.onload = function() {
+        twemoji.parse(document.body, {
+            folder: 'svg',
+            ext: '.svg'
+        });
+    }
+</script>
+
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Harley&#39;s Blog (Alt + H)">Harley&#39;s Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Harley&#39;s Python IDE (Alt + H)">Harley&#39;s Python IDE</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -264,12 +274,11 @@
 </header>
 
     <div class="container">
-        <h1>Python IDE</h1>
+        <h1>Harley&#39;s Python IDE</h1>
         
         <div class="toolbar">
             <button onclick="runCode()">Run ▶</button>
-            <button onclick="saveCode()">Save</button>
-            <button onclick="shareCode()">Share</button>
+            <button onclick="saveCode()">Save & Share</button>
             <button onclick="clearOutput()">Clear Output</button>
             <button onclick="toggleSettings()">⚙️ Settings</button>
         </div>

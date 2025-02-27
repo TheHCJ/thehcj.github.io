@@ -71,10 +71,20 @@ I love the nostr protocol and I wanted to host a relay. I was going to do this o
 
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+<script>
+    window.onload = function() {
+        twemoji.parse(document.body, {
+            folder: 'svg',
+            ext: '.svg'
+        });
+    }
+</script>
+
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Harley&#39;s Blog (Alt + H)">Harley&#39;s Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="How to Host a Nostr Relay (for Free*) (Alt + H)">How to Host a Nostr Relay (for Free*)</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -123,7 +133,6 @@ I love the nostr protocol and I wanted to host a relay. I was going to do this o
   <header class="post-header">
     <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
-      How to Host a Nostr Relay (for Free*)
     </h1>
     <div class="post-meta"><span title='2025-02-21 12:07:18 +0000 UTC'>February 21, 2025</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;540 words
 

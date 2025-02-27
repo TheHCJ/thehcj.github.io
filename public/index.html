@@ -72,6 +72,16 @@
 
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+<script>
+    window.onload = function() {
+        twemoji.parse(document.body, {
+            folder: 'svg',
+            ext: '.svg'
+        });
+    }
+</script>
+
 <header class="header">
     <nav class="nav">
         <div class="logo">
@@ -121,43 +131,6 @@
 <main class="main"> 
 
 <article class="first-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Why I built an online python ide?
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-25 12:07:18 +0000 UTC'>February 25, 2025</span>&nbsp;·&nbsp;0 min&nbsp;·&nbsp;0 words</footer>
-  <a class="entry-link" aria-label="post link to Why I built an online python ide?" href="http://localhost:1313/posts/why-i-built-an-online-python-ide/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Why did Bluesky succeed and others like it failed?
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Background I love the nostr protocol and I wanted to host a relay. I was going to do this on my raspberry pi but I knew I wouldn’t be able to keep it online 24/7. I didn’t want to pay for a VPS to host it for me so I looked for a 100% free way to host it, nostr relays are super fast and light so I wasn’t concerned about ram limits or cpu limits!
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-23 12:07:18 +0000 UTC'>February 23, 2025</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;540 words</footer>
-  <a class="entry-link" aria-label="post link to Why did Bluesky succeed and others like it failed?" href="http://localhost:1313/posts/why-did-bluesky-succeed-and-others-like-it-failed/"></a>
-</article>
-
-<article class="post-entry"> 
   <header class="entry-header">
     <h2 class="entry-hint-parent">How to Host a Nostr Relay (for Free*)
     </h2>
