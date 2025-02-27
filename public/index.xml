@@ -9,7 +9,7 @@
     <lastBuildDate>Wed, 26 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Harley&#39;s Python IDE</title>
+      <title>Python Web IDE</title>
       <link>http://localhost:1313/ide/</link>
       <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/ide/</guid>

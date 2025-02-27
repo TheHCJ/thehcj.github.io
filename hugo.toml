@@ -86,6 +86,6 @@ theme = "PaperMod"
     # url = "/about/"
     # weight = 3
   [[menu.main]]
-    name = "Python IDE"
+    name = "Python Web IDE"
     url = "/ide/"
     weight = 4
