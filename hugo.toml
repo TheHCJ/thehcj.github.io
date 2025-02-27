@@ -10,14 +10,14 @@ theme = "PaperMod"
   color = 'linen'                           # linen, wheat, gray, light
 
   # Home Info
-  ShowReadingTime = true
+  ShowReadingTime = false
   ShowShareButtons = true
   ShowToc = true
   comments = false
   ShowBreadCrumbs = true
   ShowPostNavLinks = false
   ShowCodeCopyButtons = true
-  ShowWordCount = true
+  ShowWordCount = false
   UseHugoToc = true
 
   [params.homeInfo]
