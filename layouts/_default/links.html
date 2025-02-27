@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+    <title>{{ .Title }}</title>
+    <style>
+        .linktree-container {
+            max-width: 680px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            text-align: center;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-bio {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .link-item {
+            background: var(--primary);
+            color: var(--theme);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s, opacity 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .link-item:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    {{ partial "header.html" . }}
+    <div class="linktree-container">
+        <div class="profile">
+            {{ with .Params.avatar }}
+            <img src="{{ . }}" alt="Profile" class="profile-image">
+            {{ end }}
+            <h1 class="profile-name">{{ .Title }}</h1>
+            {{ with .Params.bio }}
+            <div class="profile-bio">{{ . }}</div>
+            {{ end }}
+        </div>
+
+        <div class="links">
+            {{ range .Params.links }}
+            <a href="{{ .url }}" class="link-item" target="_blank" rel="noopener">
+                {{ .title }}
+            </a>
+            {{ end }}
+        </div>
+
+        {{ with .Params.social }}
+        <div class="social-links">
+            {{ range . }}
+            <a href="{{ .url }}" class="social-link" target="_blank" rel="noopener">
+                <i class="fab fa-{{ .platform }}"></i>
+            </a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+    {{ partial "footer.html" . }}
+</body>
+</html>

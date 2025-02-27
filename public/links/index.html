@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Categories | Harley&#39;s Blog</title>
+<title>Harley | Harley&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="description" content="Harley - Harley&#39;s Blog">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/categories/">
+<link rel="canonical" href="http://localhost:1313/links/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +18,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/index.xml">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/categories/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/links/">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <noscript>
@@ -59,9 +58,74 @@
 
     </style>
 </noscript>
-</head>
+    <title>Harley</title>
+    <style>
+        .linktree-container {
+            max-width: 680px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
 
-<body class="list" id="top">
+        .profile {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            text-align: center;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-bio {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .link-item {
+            background: var(--primary);
+            color: var(--theme);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s, opacity 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .link-item:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -86,7 +150,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Categories (Alt + H)">Categories</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Harley (Alt + H)">Harley</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -123,7 +187,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/links/" title="Links">
-                    <span>Links</span>
+                    <span class="active">Links</span>
                 </a>
             </li>
             <li>
@@ -134,14 +198,44 @@
         </ul>
     </nav>
 </header>
-<main class="main">
-<header class="page-header">
-    <h1>Categories</h1>
-</header>
 
-<ul class="terms-tags">
-</ul>
-    </main>
+    <div class="linktree-container">
+        <div class="profile">
+            
+            <img src="avatar.png" alt="Profile" class="profile-image">
+            
+            <h1 class="profile-name">Harley</h1>
+            
+            <div class="profile-bio">Developer &amp; Tech Enthusiast</div>
+            
+        </div>
+
+        <div class="links">
+            
+            <a href="https://github.com/TheHCJ" class="link-item" target="_blank" rel="noopener">
+                GitHub
+            </a>
+            
+            <a href="https://bsky.app/profile/harljo.uk" class="link-item" target="_blank" rel="noopener">
+                Bluesky
+            </a>
+            
+        </div>
+
+        
+        <div class="social-links">
+            
+            <a href="https://github.com/TheHCJ" class="social-link" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            <a href="https://bsky.app/profile/harljo.uk" class="social-link" target="_blank" rel="noopener">
+                <i class="fab fa-bluesky"></i>
+            </a>
+            
+        </div>
+        
+    </div>
     
 <footer class="footer">
         <span>&copy; 2025 <a href="http://localhost:1313/">Harley&#39;s Blog</a></span> · 
@@ -212,6 +306,53 @@
     })
 
 </script>
-</body>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+</body>
 </html>
