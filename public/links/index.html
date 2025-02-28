@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" hreflang="en" href="http://localhost:1313/links/">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <noscript>
     <style>
@@ -67,17 +67,21 @@
         }
 
         .profile {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+        text-align: center;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .profile-image {
-            text-align: center;
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
+    .profile-image {
+        display: block;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        object-fit: cover;
+    }
 
         .profile-name {
             font-size: 1.5rem;
