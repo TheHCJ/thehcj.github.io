@@ -52,10 +52,15 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            {{- /* Use title if available, then page title, then site title */}}
-            {{- $title := .Params.title | default .Title | default site.Title }}
-            {{- $label_text := (site.Params.label.text | default $title) }}
-            {{- if $title }}
+            {{- /* Show article title if use-title-header is true, otherwise show site title */}}
+            {{- $displayTitle := "" }}
+            {{- if .Params.use_title_header }}
+                {{- $displayTitle = .Title }}
+            {{- else }}
+                {{- $displayTitle = site.Title }}
+            {{- end }}
+            {{- $label_text := (site.Params.label.text | default $displayTitle) }}
+            {{- if $displayTitle }}
             <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
                 {{- if site.Params.label.icon }}
                 <!-- ... existing icon code ... -->
