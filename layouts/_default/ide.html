@@ -397,10 +397,6 @@ function output(text, type = 'output') {
             messageDiv.className = "error-message";
             text = `Error: ${text}`;
             break;
-        case 'input':
-            messageDiv.className = "python-input";
-            text = `>>> ${text}`;
-            break;
         case 'output':
             messageDiv.className = "python-output";
             break;
