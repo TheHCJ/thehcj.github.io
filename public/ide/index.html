@@ -104,12 +104,8 @@
         color: #cccccc;
     }
 
-    .python-input {
-        color: #569cd6;
-    }
-
-    .python-prompt {
-        color: #808080;
+    .python-prompt .python-input .input-prompt {
+        color: #b7e6e6;
     }
 
     .error-message {
@@ -121,14 +117,9 @@
     }
 
     .input-line {
-        display: flex;
+        display: block;
         align-items: center;
         margin: 2px 0;
-    }
-
-    .input-prompt {
-        color: #569cd6;
-        margin-right: 8px;
     }
 
     .input-field {
@@ -218,16 +209,6 @@
 
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
-<script>
-    window.onload = function() {
-        twemoji.parse(document.body, {
-            folder: 'svg',
-            ext: '.svg'
-        });
-    }
-</script>
-
 <header class="header">
     <nav class="nav">
         <div class="logo">
@@ -282,10 +263,9 @@
 
     <div class="container">
         <div class="toolbar">
-            <button onclick="runCode()">Run ▶</button>
-            <button onclick="saveCode()">Save & Share</button>
-            <button onclick="clearOutput()">Clear Output</button>
-            <button onclick="toggleSettings()">⚙️ Settings</button>
+            <button onclick="runCode()">Run</button>
+            <button onclick="saveCode()">Share</button>
+            <button onclick="toggleSettings()">Settings</button>
         </div>
         
         <div id="settings-panel" class="settings-panel hidden">
@@ -426,7 +406,7 @@
                 
                 const responseDiv = document.createElement("div");
                 responseDiv.className = "python-input";
-                responseDiv.textContent = `${prompt}${value}`;
+                responseDiv.textContent = `${prompt} ${value}`;
                 outputDiv.replaceChild(responseDiv, inputLine);
                 outputDiv.scrollTop = outputDiv.scrollHeight;
                 
@@ -441,6 +421,8 @@
 }
 
 async function runCode() {
+    clearOutput()
+
     if (!pyodide) {
         output("Python environment is not ready yet.", 'error');
         return;
@@ -528,7 +510,7 @@ function output(text, type = 'output') {
             break;
         case 'input':
             messageDiv.className = "python-input";
-            text = `>>> ${text}`;
+            text = ``;
             break;
         case 'output':
             messageDiv.className = "python-output";
@@ -575,7 +557,7 @@ function output(text, type = 'output') {
                 if (error) throw error;
 
                 if (data && data[0]) {
-                    const shareUrl = `${window.location.origin}/ide?id=${data[0].id}`;
+                    const shareUrl = `https://ide.harljo.uk/?id=${data[0].id}`;
                     output("Code saved! Share URL: " + shareUrl);
                     await navigator.clipboard.writeText(shareUrl);
                     output("Share URL copied to clipboard!");

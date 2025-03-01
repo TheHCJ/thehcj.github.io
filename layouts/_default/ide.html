@@ -48,12 +48,8 @@
         color: #cccccc;
     }
 
-    .python-input {
-        color: #569cd6;
-    }
-
-    .python-prompt {
-        color: #808080;
+    .python-prompt .python-input .input-prompt {
+        color: #b7e6e6;
     }
 
     .error-message {
@@ -65,14 +61,9 @@
     }
 
     .input-line {
-        display: flex;
+        display: block;
         align-items: center;
         margin: 2px 0;
-    }
-
-    .input-prompt {
-        color: #569cd6;
-        margin-right: 8px;
     }
 
     .input-field {
@@ -153,10 +144,9 @@
     {{ partial "header.html" . }}
     <div class="container">
         <div class="toolbar">
-            <button onclick="runCode()">Run ▶</button>
-            <button onclick="saveCode()">Save & Share</button>
-            <button onclick="clearOutput()">Clear Output</button>
-            <button onclick="toggleSettings()">⚙️ Settings</button>
+            <button onclick="runCode()">Run</button>
+            <button onclick="saveCode()">Share</button>
+            <button onclick="toggleSettings()">Settings</button>
         </div>
         
         <div id="settings-panel" class="settings-panel hidden">
@@ -297,7 +287,7 @@
                 // Show the complete input line
                 const responseDiv = document.createElement("div");
                 responseDiv.className = "python-input";
-                responseDiv.textContent = `${prompt}${value}`;
+                responseDiv.textContent = `${prompt} ${value}`;
                 outputDiv.replaceChild(responseDiv, inputLine);
                 outputDiv.scrollTop = outputDiv.scrollHeight;
                 
@@ -312,6 +302,8 @@
 }
 
 async function runCode() {
+    clearOutput()
+
     if (!pyodide) {
         output("Python environment is not ready yet.", 'error');
         return;
@@ -396,6 +388,10 @@ function output(text, type = 'output') {
         case 'error':
             messageDiv.className = "error-message";
             text = `Error: ${text}`;
+            break;
+        case 'input':
+            messageDiv.className = "python-input";
+            text = ``;
             break;
         case 'output':
             messageDiv.className = "python-output";
