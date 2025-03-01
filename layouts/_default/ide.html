@@ -446,7 +446,7 @@ function output(text, type = 'output') {
                 if (error) throw error;
 
                 if (data && data[0]) {
-                    const shareUrl = `${window.location.origin}/ide?id=${data[0].id}`;
+                    const shareUrl = `https://ide.harljo.uk/?id=${data[0].id}`;
                     output("Code saved! Share URL: " + shareUrl);
                     await navigator.clipboard.writeText(shareUrl);
                     output("Share URL copied to clipboard!");
