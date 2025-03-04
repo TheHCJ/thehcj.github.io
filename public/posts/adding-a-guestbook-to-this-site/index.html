@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8">
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Guestbook | Harley&#39;s Blog</title>
+<title>Adding a guestbook to this site! | Harley&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="Guestbook - Harley&#39;s Blog">
+<meta name="description" content="I have added a guestbook to this site that allows you to leave little messages here. I do have some rules that I require every poster to abide by or their message would be removed from the guestbook.
+
+Don&rsquo;t spread malware or spam
+Don&rsquo;t spread hate
+Don&rsquo;t spread personal infomation about others
+Use your common sense
+Be kind
+
+Messages added to the guestbook cannot be removed after posting">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/guestbook/">
+<link rel="canonical" href="http://localhost:1313/posts/adding-a-guestbook-to-this-site/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,7 +26,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/guestbook/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/adding-a-guestbook-to-this-site/">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <noscript>
@@ -58,84 +66,9 @@
 
     </style>
 </noscript>
-    <title>Guestbook</title>
-    <style>
-        .guestbook-container {
-            max-width: var(--article-content-width);
-            margin: 0 auto;
-            padding: var(--container-padding);
-        }
-
-        .guestbook-form {
-            padding: 1.5rem;
-            margin: 1.5rem auto;
-            width: 100%;
-            max-width: 600px;
-            border-radius: var(--border-radius);
-            background: var(--card-background);
-            border: 1px solid var(--border);
-        }
-
-        .guestbook-form label {
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            display: block;
-            color: var(--body-text);
-        }
-
-        .guestbook-form input, 
-        .guestbook-form textarea {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border);
-            border-radius: var(--border-radius);
-            font-size: var(--article-font-size);
-            background: var(--card-background);
-            color: var(--body-text);
-        }
-
-        .guestbook-form button {
-            background: var(--primary);
-            color: var(--theme);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-size: var(--article-font-size);
-            font-weight: 500;
-            transition: opacity 0.2s ease;
-        }
-
-        .guestbook-form button:hover {
-            opacity: 0.8;
-        }
-
-        .entry {
-            padding: 1.25rem;
-            margin: 1rem 0;
-            border-left: 4px solid var(--primary);
-            background: var(--card-background);
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .entry strong {
-            color: var(--primary);
-        }
-
-        .entry p {
-            margin: 0.5rem 0;
-            color: var(--body-text);
-        }
-
-        .entry small {
-            color: var(--neutral);
-        }
-    </style>
 </head>
-<body>
-    
+
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -150,7 +83,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Guestbook (Alt + H)">Guestbook</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Harley&#39;s Blog (Alt + H)">Harley&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -187,7 +120,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/guestbook/" title="Guestbook">
-                    <span class="active">Guestbook</span>
+                    <span>Guestbook</span>
                 </a>
             </li>
             <li>
@@ -203,36 +136,120 @@
         </ul>
     </nav>
 </header>
+<main class="main">
 
-    <main class="main">
-        <article class="article">
-            <header class="article-header">
-                <div class="article-details">
-                    <h1 class="article-title">Guestbook</h1>
-                    <p class="text-neutral-500 dark:text-neutral-400">I appreciate any messages posted to the guestbook! Make sure to check the <i><a href="/posts/adding-a-guestbook-to-this-site/">rules</a></i> before posting</p>
-                </div>
-            </header>
-            
-            <div class="article-content">
-                <div class="guestbook-container">
-                    
-                    <form id="guestbook-form" class="guestbook-form">
-                        <label for="name">Your Name:</label>
-                        <input type="text" id="name" name="name" required>
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Adding a guestbook to this site!
+    </h1>
+    <div class="post-meta"><span title='2025-03-03 22:00:00 +0000 UTC'>March 3, 2025</span>
 
-                        <label for="message">Your Message:</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
+</div>
+  </header> 
 
-                        <button type="submit">Submit</button>
-                    </form>
+  <div class="post-content"><p>I have added a guestbook to this site that allows you to leave little messages <a href="https://harljo.uk/guestbook/">here</a>. I do have some rules that I require every poster to abide by or their message would be removed from the guestbook.</p>
+<ul>
+<li>Don&rsquo;t spread malware or spam</li>
+<li>Don&rsquo;t spread hate</li>
+<li>Don&rsquo;t spread personal infomation about others</li>
+<li><strong>Use</strong> your common sense</li>
+<li>Be <em>kind</em></li>
+</ul>
+<p><strong>Messages added to the guestbook cannot be removed after posting</strong></p>
 
-                    <h3 class="text-2xl font-bold mb-4">Guestbook Entries</h3>
-                    <div id="entries"></div>
-                </div>
-            </div>
-        </article>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+<style>
+    .share-buttons {
+        display: flex;
+        gap: 1.5rem;
+        padding: 0;
+        margin: 1rem 0;
+        list-style: none;
+    }
+
+    .share-buttons li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .share-buttons .fab {
+        font-size: 1.75rem; 
+        width: 3rem;        
+        height: 3rem;        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+    }
+
+    .share-buttons .fab:hover {
+        transform: scale(0.9);
+    }
+</style>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding a guestbook to this site! on x"
+            href="https://x.com/intent/tweet/?text=Adding%20a%20guestbook%20to%20this%20site%21&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f&amp;hashtags=">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding a guestbook to this site! on bluesky"
+            href="https://bsky.app/intent/compose?text=Adding%20a%20guestbook%20to%20this%20site%21%0Ahttp%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f&amp;hashtags=">
+            <i class="fab fa-bluesky"></i>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding a guestbook to this site! on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f&amp;title=Adding%20a%20guestbook%20to%20this%20site%21&amp;summary=Adding%20a%20guestbook%20to%20this%20site%21&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding a guestbook to this site! on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f&title=Adding%20a%20guestbook%20to%20this%20site%21">
+            <i class="fab fa-reddit"></i>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding a guestbook to this site! on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f">
+            <i class="fab fa-facebook"></i>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding a guestbook to this site! on whatsapp"
+            href="https://api.whatsapp.com/send?text=Adding%20a%20guestbook%20to%20this%20site%21%20-%20http%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding a guestbook to this site! on telegram"
+            href="https://telegram.me/share/url?text=Adding%20a%20guestbook%20to%20this%20site%21&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding a guestbook to this site! on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Adding%20a%20guestbook%20to%20this%20site%21&u=http%3a%2f%2flocalhost%3a1313%2fposts%2fadding-a-guestbook-to-this-site%2f">
+            <i class="fab fa-hacker-news"></i>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
     </main>
-
     
 <footer class="footer">
         <span>&copy; 2025 <a href="http://localhost:1313/">Harley&#39;s Blog</a></span> · 
@@ -350,84 +367,6 @@
         }
     });
 </script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.5.0/dist/umd/supabase.min.js"></script>
-
-    <script>
-        const supabaseClient = supabase.createClient(
-            'https://gjjevzqihdzldkxlucjw.supabase.co',
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdqamV2enFpaGR6bGRreGx1Y2p3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0MzExMjYsImV4cCI6MjA1NjAwNzEyNn0.6ssXGyJch26dIq0zAcDgJfrnIo6JYi7Uah10A5iEcSM'
-        );
-
-        
-        document.getElementById('guestbook-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const message = document.getElementById('message').value;
-
-            try {
-                const { data, error } = await supabaseClient
-                    .from('guestbook_entries')
-                    .insert([{ 
-                        name, 
-                        message, 
-                        created_at: new Date().toISOString() 
-                    }]);
-
-                if (error) throw error;
-
-                
-                e.target.reset();
-                await loadEntries();
-            } catch (error) {
-                console.error('Error saving entry:', error);
-                alert('Error saving entry: ' + error.message);
-            }
-        });
-
-        
-        async function loadEntries() {
-            try {
-                const { data, error } = await supabaseClient
-                    .from('guestbook_entries')
-                    .select('name, message, created_at')
-                    .order('created_at', { ascending: false });
-
-                if (error) throw error;
-
-                const entriesDiv = document.getElementById('entries');
-                entriesDiv.innerHTML = '';
-
-                data.forEach(entry => {
-                    const entryDiv = document.createElement('div');
-                    entryDiv.classList.add('entry');
-                    entryDiv.innerHTML = `
-                        <strong>${escapeHtml(entry.name)}</strong>
-                        <p>${escapeHtml(entry.message)}</p>
-                        <small>${new Date(entry.created_at).toLocaleString()}</small>
-                    `;
-                    entriesDiv.appendChild(entryDiv);
-                });
-            } catch (error) {
-                console.error('Error loading entries:', error);
-                alert('Error loading entries: ' + error.message);
-            }
-        }
-
-        
-        function escapeHtml(unsafe) {
-            return unsafe
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-
-        
-        document.addEventListener('DOMContentLoaded', loadEntries);
-    </script>
 </body>
+
 </html>
