@@ -82,13 +82,13 @@ theme = "PaperMod"
     url = "/posts/"
     weight = 2
   [[menu.main]]
-    name = "Links"
-    url = "/links/"
+    name = "Guestbook"
+    url = "/guestbook/"
     weight = 3
-  # [[menu.main]]
-    # name = "About"
-    # url = "/about/"
-    # weight = 4
+  [[menu.main]]
+    name = "Links" # make about
+    url = "/links/"
+    weight = 4
   [[menu.main]]
     name = "Python Web IDE"
     url = "/ide/"
