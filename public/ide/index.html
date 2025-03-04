@@ -73,127 +73,106 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.3/dist/umd/supabase.min.js"></script>
 
     <style>
+         
         .container {
-            max-width: 1200px;
+            max-width: var(--article-content-width);
             margin: 0 auto;
-            padding: 20px;
+            padding: var(--container-padding);
         }
+    
+         
+        .article-content {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+    
+         
         #editor-container {
-            border: 1px solid #333;
-            border-radius: 4px;
-            margin: 20px 0;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            margin: var(--margin) 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .CodeMirror {
-            height: 400px !important;
-            font-size: 14px;
-        }
+
+        .button {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary);
+        color: var(--theme);
+        border: 1px solid var(--primary);
+        border-radius: var(--border-radius);
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        font-family: var(--base-font-family);
+        transition: all 0.2s ease;
+        min-width: 100px;
+        margin: 0 0.25rem;
+    }
+
+    .button:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+    }
+
+    .button-text {
+        font-size: 0.95rem;
+        font-weight: 500;
+    }
+
+    .button-shortcut {
+        font-size: 0.75rem;
+        opacity: 0.8;
+        margin-top: 0.25rem;
+    }
+      
+     .CodeMirror {
+        background-color: var(--card-background) !important;
+        color: var(--body-text) !important;
+        border: 1px solid var(--border);
+    }
+
+    .cm-s-default {
+        background-color: var(--card-background) !important;
+        color: var(--body-text) !important;
+    }
+
+    .cm-s-default .CodeMirror-gutters {
+        background-color: var(--card-background) !important;
+        border-right: 1px solid var(--border);
+    }
+
+    .cm-s-default .CodeMirror-linenumber {
+        color: var(--secondary) !important;
+    }
+    
+         
         #output {
-        background: #1e1e1e;
-        color: #cccccc;
-        padding: 15px;
-        border-radius: 4px;
-        height: 200px;
-        overflow-y: auto;
-        font-family: 'Consolas', 'Courier New', monospace;
-        margin-top: 20px;
-        white-space: pre-wrap;
-        border: 1px solid #444;
-    }
-
-    .python-output {
-        color: #cccccc;
-    }
-
-    .python-prompt .python-input .input-prompt {
-        color: #b7e6e6;
-    }
-
-    .error-message {
-        color: #f14c4c;
-    }
-
-    .success-message {
-        color: #89d185;
-    }
-
-    .input-line {
-        display: block;
-        align-items: center;
-        margin: 2px 0;
-    }
-
-    .input-field {
-        background: transparent;
-        border: none;
-        color: #cccccc;
-        font-family: 'Consolas', 'Courier New', monospace;
-        flex-grow: 1;
-        outline: none;
-    }
+            background: var(--card-background);
+            color: var(--body-text);
+            padding: var(--padding);
+            border-radius: var(--border-radius);
+            height: 150px;
+            overflow-y: auto;
+            font-family: var(--code-font-family);
+            margin-top: var(--margin);
+            white-space: pre-wrap;
+            border: 1px solid var(--border);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+         
         .toolbar {
-            padding: 10px;
-            background: #282a36;
-            border-radius: 4px;
-            margin: 20px 0;
+            max-width: 900px;
+            margin: var(--margin) auto;
+            text-align: center;
+            padding: var(--padding);
         }
-        .container button {
-            background: #bd93f9;
-            color: #282a36;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 8px;
-            font-weight: bold;
-        }
-        .container button:hover {
-            background: #ff79c6;
-        }
-        .error-message {
-            color: #ff5555;
-        }
-        .success-message {
-            color: #50fa7b;
-        }
-
-        .settings-panel {
-        background: #282a36;
-        border: 1px solid #44475a;
-        border-radius: 4px;
-        padding: 20px;
-        margin: 10px 0;
-        transition: all 0.3s ease;
-    }
-
-    .settings-panel.hidden {
-        display: none;
-    }
-
-    .setting-group {
-        margin: 10px 0;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .setting-group label {
-        min-width: 120px;
-        color: #f8f8f2;
-    }
-
-    .setting-group select,
-    .setting-group input[type="number"] {
-        background: #44475a;
-        color: #f8f8f2;
-        border: 1px solid #6272a4;
-        padding: 5px;
-        border-radius: 3px;
-    }
-
-    .setting-group input[type="checkbox"] {
-        width: 16px;
-        height: 16px;
-    }
     </style>
 </head>
 <body>
@@ -266,44 +245,32 @@
     </nav>
 </header>
 
-    <div class="container">
-        <div class="toolbar">
-            <button onclick="runCode()">Run</button>
-            <button onclick="saveCode()">Share</button>
-            <button onclick="toggleSettings()">Settings</button>
-        </div>
+    <main class="main">
+        <article class="article">
+            <header class="article-header">
+                <div class="article-details">
+                    <h1 class="article-title">Python Web IDE</h1>
+                    <p class="text-neutral-500 dark:text-neutral-400">A simple way to run python code on the web</p>
+                </div>
+            </header>
+            
+            <div class="article-content">
+                <div class="container">
+                    <div class="toolbar">
+                        <button class="button" onclick="runCode()">
+                            <span class="button-text">Run Code</span>
+                            <small class="button-shortcut">(Ctrl+Enter)</small>
+                        </button>
+                        <button class="button" onclick="downloadCode()">
+                            <span class="button-text">Save File</span>
+                            <small class="button-shortcut">(Ctrl+D)</small>
+                        </button>
+                        <button class="button" onclick="shareCode()">
+                            <span class="button-text">Share</span>
+                            <small class="button-shortcut">(Ctrl+S)</small>
+                        </button>
+                    </div>
         
-        <div id="settings-panel" class="settings-panel hidden">
-            <h3>Editor Settings</h3>
-            <div class="setting-group">
-                <label>Theme:</label>
-                <select id="theme-select" onchange="updateEditorOption('theme', this.value)">
-                    <option value="monokai">Monokai</option>
-                    <option value="material">Material</option>
-                    <option value="night">Night</option>
-                </select>
-            </div>
-            <div class="setting-group">
-                <label>Font Size:</label>
-                <input type="number" id="font-size" value="14" min="8" max="32" 
-                       onchange="updateEditorFont(this.value)">
-            </div>
-            <div class="setting-group">
-                <label>Tab Size:</label>
-                <input type="number" id="tab-size" value="4" min="2" max="8" 
-                       onchange="updateEditorOption('tabSize', this.value)">
-            </div>
-            <div class="setting-group">
-                <label>Line Numbers:</label>
-                <input type="checkbox" id="line-numbers" checked 
-                       onchange="updateEditorOption('lineNumbers', this.checked)">
-            </div>
-            <div class="setting-group">
-                <label>Line Wrapping:</label>
-                <input type="checkbox" id="line-wrap" checked 
-                       onchange="updateEditorOption('lineWrapping', this.checked)">
-            </div>
-        </div>
         <div id="editor-container">
             <textarea id="editor"></textarea>
         </div>
@@ -318,28 +285,33 @@
         );
 
         
-        const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-            mode: "python",
-            theme: "material",
-            lineNumbers: true,
-            autoCloseBrackets: true,
-            indentUnit: 4,
-            tabSize: 4,
-            lineWrapping: true,
-            extraKeys: {
-                "Ctrl-Space": "autocomplete",
-                "Ctrl-Enter": runCode,
-                "Ctrl-S": saveCode,
-                "Tab": function(cm) {
-                    if (cm.somethingSelected()) {
-                        cm.indentSelection("add");
-                    } else {
-                        cm.replaceSelection("    ", "end");
-                    }
-                }
+const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+    mode: "python",
+    theme: document.documentElement.classList.contains('dark') ? "material-darker" : "default",
+    lineNumbers: true,
+    autoCloseBrackets: true,
+    indentUnit: 4,
+    tabSize: 4,
+    lineWrapping: true,
+    extraKeys: {
+        "Ctrl-Space": "autocomplete",
+        "Ctrl-Enter": runCode,
+        "Ctrl-S": shareCode,
+        "Ctrl-D": downloadCode,
+        "Tab": function(cm) {
+            if (cm.somethingSelected()) {
+                cm.indentSelection("add");
+            } else {
+                cm.replaceSelection("    ", "end");
             }
-        });
+        }
+    }
+});
 
+document.addEventListener('theme-changed', function() {
+    const isDark = document.documentElement.classList.contains('dark');
+    editor.setOption('theme', isDark ? 'material-darker' : 'default');
+});
         
         editor.setValue("# Write your Python code here\nprint('Hello, World!')");
 
@@ -545,7 +517,20 @@ function output(text, type = 'output') {
         }
 
        
-        
+        function downloadCode() {
+    const code = editor.getValue();
+    const blob = new Blob([code], { type: 'text/x-python' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const filename = prompt('Enter filename:', 'code.py') || 'code.py';
+    
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
 
         
         async function saveCode() {
@@ -562,7 +547,7 @@ function output(text, type = 'output') {
                 if (error) throw error;
 
                 if (data && data[0]) {
-                    const shareUrl = `https://ide.harljo.uk/?id=${data[0].id}`;
+                    const shareUrl = `https://harljo.uk/ide/?id=${data[0].id}`;
                     output("Code saved! Share URL: " + shareUrl);
                     await navigator.clipboard.writeText(shareUrl);
                     output("Share URL copied to clipboard!");
@@ -603,27 +588,6 @@ function output(text, type = 'output') {
         
         loadSharedCode();
 
-        
-    function toggleSettings() {
-        const panel = document.getElementById('settings-panel');
-        panel.classList.toggle('hidden');
-    }
-
-    function updateEditorOption(option, value) {
-        if (option === 'theme') {
-            
-            loadThemeCSS(value);
-        }
-        editor.setOption(option, value);
-        
-        saveSettings();
-    }
-
-    function updateEditorFont(size) {
-        document.querySelector('.CodeMirror').style.fontSize = size + 'px';
-        saveSettings();
-    }
-
     function loadThemeCSS(theme) {
         const themeId = `cm-theme-${theme}`;
         if (!document.getElementById(themeId) && theme !== 'dracula') {
@@ -634,42 +598,13 @@ function output(text, type = 'output') {
             document.head.appendChild(link);
         }
     }
-
-    function saveSettings() {
-        const settings = {
-            theme: editor.getOption('theme'),
-            fontSize: document.querySelector('.CodeMirror').style.fontSize,
-            tabSize: editor.getOption('tabSize'),
-            lineNumbers: editor.getOption('lineNumbers'),
-            lineWrapping: editor.getOption('lineWrapping')
-        };
-        localStorage.setItem('editorSettings', JSON.stringify(settings));
-    }
-
-    function loadSettings() {
-        const saved = localStorage.getItem('editorSettings');
-        if (saved) {
-            const settings = JSON.parse(saved);
-            updateEditorOption('theme', settings.theme);
-            updateEditorFont(parseInt(settings.fontSize));
-            updateEditorOption('tabSize', settings.tabSize);
-            updateEditorOption('lineNumbers', settings.lineNumbers);
-            updateEditorOption('lineWrapping', settings.lineWrapping);
-            
-            
-            document.getElementById('theme-select').value = settings.theme;
-            document.getElementById('font-size').value = parseInt(settings.fontSize);
-            document.getElementById('tab-size').value = settings.tabSize;
-            document.getElementById('line-numbers').checked = settings.lineNumbers;
-            document.getElementById('line-wrap').checked = settings.lineWrapping;
-        }
-    }
-
-    
-    document.addEventListener('DOMContentLoaded', loadSettings);
     </script>
 
-    
+</div>
+</div>
+</article>
+</main>
+
 <footer class="footer">
         <span>&copy; 2025 <a href="http://localhost:1313/">Harley&#39;s Blog</a></span> · 
 
