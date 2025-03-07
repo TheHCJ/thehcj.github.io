@@ -60,6 +60,14 @@
         </a>
     </li>
     {{- end }}
+    {{- if (cond ($custom) (in $ShareButtons "mastodon") (true)) }}
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on mastodon"
+            href="https://mastodonshare.com/share?text={{ $title }}%20-%20{{ $pageurl }}&hashtags={{- $.Scratch.Get "tags" -}}">
+            <i class="fab fa-mastodon"></i>
+        </a>
+    </li>
+    {{- end }}
     {{- if (cond ($custom) (in $ShareButtons "linkedin") (true)) }}
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on linkedin"
