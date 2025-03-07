@@ -133,91 +133,14 @@ I love the nostr protocol and I wanted to host a relay. I was going to do this o
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       How to Host a Nostr Relay (for Free*)
     </h1>
     <div class="post-meta"><span title='2025-02-21 12:07:18 +0000 UTC'>February 21, 2025</span>
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#background">Background</a></li>
-    <li><a href="#there-are-some-issues-with-this-though">There are some <em>issues</em> with this though&hellip;</a>
-      <ul>
-        <li><a href="#runtime-limits">Runtime limits</a></li>
-      </ul>
-    </li>
-    <li><a href="#slow-servers">Slow servers</a></li>
-    <li><a href="#unreliable-connection">Unreliable connection</a>
-      <ul>
-        <li><a href="#lack-of-control">Lack of control</a></li>
-      </ul>
-    </li>
-    <li><a href="#should-i-still-setup-a-relay-on-render">Should I still setup a relay on render?</a></li>
-    <li><a href="#i-still-want-to-set-up-a-relay-for-freehow-can-i-do-it">I still want to set up a relay for free—how can I do it?</a>
-      <ul>
-        <li><a href="#what-do-you-need">What do you need?</a></li>
-        <li><a href="#step-1---create-a-new-web-service">Step 1 - Create a new web service</a></li>
-        <li><a href="#step-2---select-existing-image">Step 2 - Select &lsquo;Existing Image&rsquo;</a></li>
-        <li><a href="#step-3---connect-docker-image">Step 3 - Connect Docker Image</a></li>
-        <li><a href="#step-4---deploy">Step 4 - Deploy!</a></li>
-      </ul>
-    </li>
-    <li><a href="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
-        </div>
-    </details>
-</div>
-
-  <div class="post-content"><h2 id="background">Background<a hidden class="anchor" aria-hidden="true" href="#background">#</a></h2>
-<p>I love the nostr protocol and I wanted to host a relay. I was going to do this on my raspberry pi but I knew I wouldn&rsquo;t be able to keep it online 24/7. I didn&rsquo;t want to pay for a VPS to host it for me so I looked for a 100% free way to host it, nostr relays are super fast and light so I wasn&rsquo;t concerned about ram limits or cpu limits!</p>
-<p>So in my search I found <a href="https://onrender.com">render</a>, a service mainly for serverless hosting of static sites. As it turns out they have a way to deploy docker containers on their free tier. This is how I was able to setup relay.harljo.uk (relay offline!) for completely free (no credit card required!)</p>
-<h2 id="there-are-some-issues-with-this-though">There are some <em>issues</em> with this though&hellip;<a hidden class="anchor" aria-hidden="true" href="#there-are-some-issues-with-this-though">#</a></h2>
-<h3 id="runtime-limits">Runtime limits<a hidden class="anchor" aria-hidden="true" href="#runtime-limits">#</a></h3>
-<p>So at the moment your relay is small and likely isn&rsquo;t being used by many people, this use-case is fine for most people though it won’t work for medium-large sized relays. This is because render has a limit of 750 hours of runtime a month. 750 hours is roughly the same as running a server 24/7 for 31 days. This should be enough if you’re not running any other services with them. Otherwise, you’ll need to provide a credit card to cover the costs.</p>
-<h2 id="slow-servers">Slow servers<a hidden class="anchor" aria-hidden="true" href="#slow-servers">#</a></h2>
-<p>Another issue you&rsquo;ll encounter is that render&rsquo;s free servers are slow. This is because your relay is only allocated 512MB of RAM and 0.1 of their vCPU. This shouldn&rsquo;t be an issue for most small relays though you might want to consider this before deploying!</p>
-<h2 id="unreliable-connection">Unreliable connection<a hidden class="anchor" aria-hidden="true" href="#unreliable-connection">#</a></h2>
-<p>When Render spins down your relay, all data is lost, as the free tier doesn&rsquo;t come with persistent storage. When the relay becomes active again, requests may experience a delay of 50 seconds or more.</p>
-<h3 id="lack-of-control">Lack of control<a hidden class="anchor" aria-hidden="true" href="#lack-of-control">#</a></h3>
-<p>The free tier of render doesn&rsquo;t allow SSH access so you can&rsquo;t do normal server admin things :(</p>
-<h2 id="should-i-still-setup-a-relay-on-render">Should I still setup a relay on render?<a hidden class="anchor" aria-hidden="true" href="#should-i-still-setup-a-relay-on-render">#</a></h2>
-<p>Yes, but make sure you know the <em>quirks</em> of doing it this way!</p>
-<h2 id="i-still-want-to-set-up-a-relay-for-freehow-can-i-do-it">I still want to set up a relay for free—how can I do it?<a hidden class="anchor" aria-hidden="true" href="#i-still-want-to-set-up-a-relay-for-freehow-can-i-do-it">#</a></h2>
-<h3 id="what-do-you-need">What do you need?<a hidden class="anchor" aria-hidden="true" href="#what-do-you-need">#</a></h3>
-<ul>
-<li>A free (or paid) account for <a href="https://onrender.com">Render</a></li>
-<li>A nostr client like <a href="https://primal.net">primal</a> to connect to the relay 🔌</li>
-</ul>
-<h3 id="step-1---create-a-new-web-service">Step 1 - Create a new web service<a hidden class="anchor" aria-hidden="true" href="#step-1---create-a-new-web-service">#</a></h3>
-<p>Go to the <a href="https://dashboard.render.com">Render Dashboard</a>, and create a new web service
-<img loading="lazy" src="/posts/how-to-host-a-nostr-relay-for-free/createwebservice.png"></p>
-<h3 id="step-2---select-existing-image">Step 2 - Select &lsquo;Existing Image&rsquo;<a hidden class="anchor" aria-hidden="true" href="#step-2---select-existing-image">#</a></h3>
-<p>When you are on the <em>You are deploying a web service</em> screen click on <em>Existing Image</em>
-<img loading="lazy" src="/posts/how-to-host-a-nostr-relay-for-free/deployfromexistingimage.png"></p>
-<h3 id="step-3---connect-docker-image">Step 3 - Connect Docker Image<a hidden class="anchor" aria-hidden="true" href="#step-3---connect-docker-image">#</a></h3>
-<p>Paste <code>docker.io/scsibug/nostr-rs-relay:latest</code> inside the <em>Image URL</em> field and then click <em>Connect</em>
-<img loading="lazy" src="/posts/how-to-host-a-nostr-relay-for-free/deployfromexistingimage.png"></p>
-<h3 id="step-4---deploy">Step 4 - Deploy!<a hidden class="anchor" aria-hidden="true" href="#step-4---deploy">#</a></h3>
-<p>Once you have connected the Docker image, make sure to select the correct server. If you plan on doing this for free* make sure you select that before you deploy!
-Once you have done this scroll all the way to the bottom and click <em>Deploy</em>!</p>
-<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
-<p>Running a Nostr relay for free is possible, but it’s not always the best option. If you&rsquo;re serious about running a relay, you may be able to get a cheap VPS or, even better, self-host it on a Raspberry Pi. Relays aren&rsquo;t very heavy, which is why Nostr remains sustainable. :)</p>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-    </ul>
+  </header>
+  <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
 
 <style>
     .share-buttons {
@@ -299,19 +222,92 @@ Once you have done this scroll all the way to the bottom and click <em>Deploy</e
         </a>
     </li>
 </ul>
+ <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#there-are-some-issues-with-this-though">There are some <em>issues</em> with this though&hellip;</a>
+      <ul>
+        <li><a href="#runtime-limits">Runtime limits</a></li>
+      </ul>
+    </li>
+    <li><a href="#slow-servers">Slow servers</a></li>
+    <li><a href="#unreliable-connection">Unreliable connection</a>
+      <ul>
+        <li><a href="#lack-of-control">Lack of control</a></li>
+      </ul>
+    </li>
+    <li><a href="#should-i-still-setup-a-relay-on-render">Should I still setup a relay on render?</a></li>
+    <li><a href="#i-still-want-to-set-up-a-relay-for-freehow-can-i-do-it">I still want to set up a relay for free—how can I do it?</a>
+      <ul>
+        <li><a href="#what-do-you-need">What do you need?</a></li>
+        <li><a href="#step-1---create-a-new-web-service">Step 1 - Create a new web service</a></li>
+        <li><a href="#step-2---select-existing-image">Step 2 - Select &lsquo;Existing Image&rsquo;</a></li>
+        <li><a href="#step-3---connect-docker-image">Step 3 - Connect Docker Image</a></li>
+        <li><a href="#step-4---deploy">Step 4 - Deploy!</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="background">Background<a hidden class="anchor" aria-hidden="true" href="#background">#</a></h2>
+<p>I love the nostr protocol and I wanted to host a relay. I was going to do this on my raspberry pi but I knew I wouldn&rsquo;t be able to keep it online 24/7. I didn&rsquo;t want to pay for a VPS to host it for me so I looked for a 100% free way to host it, nostr relays are super fast and light so I wasn&rsquo;t concerned about ram limits or cpu limits!</p>
+<p>So in my search I found <a href="https://onrender.com">render</a>, a service mainly for serverless hosting of static sites. As it turns out they have a way to deploy docker containers on their free tier. This is how I was able to setup relay.harljo.uk (relay offline!) for completely free (no credit card required!)</p>
+<h2 id="there-are-some-issues-with-this-though">There are some <em>issues</em> with this though&hellip;<a hidden class="anchor" aria-hidden="true" href="#there-are-some-issues-with-this-though">#</a></h2>
+<h3 id="runtime-limits">Runtime limits<a hidden class="anchor" aria-hidden="true" href="#runtime-limits">#</a></h3>
+<p>So at the moment your relay is small and likely isn&rsquo;t being used by many people, this use-case is fine for most people though it won’t work for medium-large sized relays. This is because render has a limit of 750 hours of runtime a month. 750 hours is roughly the same as running a server 24/7 for 31 days. This should be enough if you’re not running any other services with them. Otherwise, you’ll need to provide a credit card to cover the costs.</p>
+<h2 id="slow-servers">Slow servers<a hidden class="anchor" aria-hidden="true" href="#slow-servers">#</a></h2>
+<p>Another issue you&rsquo;ll encounter is that render&rsquo;s free servers are slow. This is because your relay is only allocated 512MB of RAM and 0.1 of their vCPU. This shouldn&rsquo;t be an issue for most small relays though you might want to consider this before deploying!</p>
+<h2 id="unreliable-connection">Unreliable connection<a hidden class="anchor" aria-hidden="true" href="#unreliable-connection">#</a></h2>
+<p>When Render spins down your relay, all data is lost, as the free tier doesn&rsquo;t come with persistent storage. When the relay becomes active again, requests may experience a delay of 50 seconds or more.</p>
+<h3 id="lack-of-control">Lack of control<a hidden class="anchor" aria-hidden="true" href="#lack-of-control">#</a></h3>
+<p>The free tier of render doesn&rsquo;t allow SSH access so you can&rsquo;t do normal server admin things :(</p>
+<h2 id="should-i-still-setup-a-relay-on-render">Should I still setup a relay on render?<a hidden class="anchor" aria-hidden="true" href="#should-i-still-setup-a-relay-on-render">#</a></h2>
+<p>Yes, but make sure you know the <em>quirks</em> of doing it this way!</p>
+<h2 id="i-still-want-to-set-up-a-relay-for-freehow-can-i-do-it">I still want to set up a relay for free—how can I do it?<a hidden class="anchor" aria-hidden="true" href="#i-still-want-to-set-up-a-relay-for-freehow-can-i-do-it">#</a></h2>
+<h3 id="what-do-you-need">What do you need?<a hidden class="anchor" aria-hidden="true" href="#what-do-you-need">#</a></h3>
+<ul>
+<li>A free (or paid) account for <a href="https://onrender.com">Render</a></li>
+<li>A nostr client like <a href="https://primal.net">primal</a> to connect to the relay 🔌</li>
+</ul>
+<h3 id="step-1---create-a-new-web-service">Step 1 - Create a new web service<a hidden class="anchor" aria-hidden="true" href="#step-1---create-a-new-web-service">#</a></h3>
+<p>Go to the <a href="https://dashboard.render.com">Render Dashboard</a>, and create a new web service
+<img loading="lazy" src="/posts/how-to-host-a-nostr-relay-for-free/createwebservice.png"></p>
+<h3 id="step-2---select-existing-image">Step 2 - Select &lsquo;Existing Image&rsquo;<a hidden class="anchor" aria-hidden="true" href="#step-2---select-existing-image">#</a></h3>
+<p>When you are on the <em>You are deploying a web service</em> screen click on <em>Existing Image</em>
+<img loading="lazy" src="/posts/how-to-host-a-nostr-relay-for-free/deployfromexistingimage.png"></p>
+<h3 id="step-3---connect-docker-image">Step 3 - Connect Docker Image<a hidden class="anchor" aria-hidden="true" href="#step-3---connect-docker-image">#</a></h3>
+<p>Paste <code>docker.io/scsibug/nostr-rs-relay:latest</code> inside the <em>Image URL</em> field and then click <em>Connect</em>
+<img loading="lazy" src="/posts/how-to-host-a-nostr-relay-for-free/deployfromexistingimage.png"></p>
+<h3 id="step-4---deploy">Step 4 - Deploy!<a hidden class="anchor" aria-hidden="true" href="#step-4---deploy">#</a></h3>
+<p>Once you have connected the Docker image, make sure to select the correct server. If you plan on doing this for free* make sure you select that before you deploy!
+Once you have done this scroll all the way to the bottom and click <em>Deploy</em>!</p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>Running a Nostr relay for free is possible, but it’s not always the best option. If you&rsquo;re serious about running a relay, you may be able to get a cheap VPS or, even better, self-host it on a Raspberry Pi. Relays aren&rsquo;t very heavy, which is why Nostr remains sustainable. :)</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Harley&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
+    <a style="text-decoration: none; border: none;" rel="me" href="https://fosstodon.org/@hcj">
+        <i style="font-size: xx-large;" class="fab fa-mastodon fa-2xl"></i>
+    </a>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
