@@ -82,6 +82,10 @@ theme = "PaperMod"
     url = "/posts/"
     weight = 2
   [[menu.main]]
+    name = "Archives"
+    url = "/archives/"
+    weight = 3
+  [[menu.main]]
     name = "Links"
     url = "/links/"
     weight = 4

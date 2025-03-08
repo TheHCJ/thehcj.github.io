@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Harley&#39;s Blog</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Harley&#39;s Blog</description>
+    <title>Archives on Harley&#39;s Blog</title>
+    <link>http://localhost:1313/archives/</link>
+    <description>Recent content in Archives on Harley&#39;s Blog</description>
     <generator>Hugo -- 0.144.2</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Mar 2025 22:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/archives/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adding a guestbook to this site!</title>
       <link>http://localhost:1313/archives/adding-a-guestbook-to-this-site/</link>
@@ -23,28 +23,6 @@
 &lt;li&gt;Be &lt;em&gt;kind&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Messages added to the guestbook cannot be removed after posting&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Python Web IDE</title>
-      <link>http://localhost:1313/ide/</link>
-      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/ide/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>How to Host a Nostr Relay (for Free*)</title>
-      <link>http://localhost:1313/posts/how-to-host-a-nostr-relay-for-free/</link>
-      <pubDate>Fri, 21 Feb 2025 12:07:18 +0000</pubDate>
-      <guid>http://localhost:1313/posts/how-to-host-a-nostr-relay-for-free/</guid>
-      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
-&lt;p&gt;I love the nostr protocol and I wanted to host a relay. I was going to do this on my raspberry pi but I knew I wouldn&amp;rsquo;t be able to keep it online 24/7. I didn&amp;rsquo;t want to pay for a VPS to host it for me so I looked for a 100% free way to host it, nostr relays are super fast and light so I wasn&amp;rsquo;t concerned about ram limits or cpu limits!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Harley</title>
-      <link>http://localhost:1313/links/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/links/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>

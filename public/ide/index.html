@@ -222,23 +222,18 @@
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/posts/" title="Posts">
-                    <span>Posts</span>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/guestbook/" title="Guestbook">
-                    <span>Guestbook</span>
+                <a href="http://localhost:1313/archives/" title="Archives">
+                    <span>Archives</span>
                 </a>
             </li>
             <li>
                 <a href="http://localhost:1313/links/" title="Links">
                     <span>Links</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/ide/" title="Python Web IDE">
-                    <span class="active">Python Web IDE</span>
                 </a>
             </li>
         </ul>
@@ -250,6 +245,7 @@
             <header class="article-header">
                 <div class="article-details">
                     <h1 class="article-title">Python Web IDE</h1>
+                    <p class="text-neutral-500 dark:text-neutral-400">⚠️NO LONGER MAINTAINED⚠️</p>
                     <p class="text-neutral-500 dark:text-neutral-400">A simple way to run python code on the web</p>
                 </div>
             </header>
@@ -265,10 +261,6 @@
                             <span class="button-text">Save File</span>
                             <small class="button-shortcut">(Ctrl+D)</small>
                         </button>
-                        <button class="button" onclick="shareCode()">
-                            <span class="button-text">Share</span>
-                            <small class="button-shortcut">(Ctrl+S)</small>
-                        </button>
                     </div>
         
         <div id="editor-container">
@@ -278,11 +270,6 @@
     </div>
 
     <script>
-        
-        const supabaseClient = supabase.createClient(
-            'https://gjjevzqihdzldkxlucjw.supabase.co',
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdqamV2enFpaGR6bGRreGx1Y2p3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0MzExMjYsImV4cCI6MjA1NjAwNzEyNn0.6ssXGyJch26dIq0zAcDgJfrnIo6JYi7Uah10A5iEcSM'
-        );
 
         
 const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
@@ -532,62 +519,7 @@ function output(text, type = 'output') {
     URL.revokeObjectURL(url);
 }
 
-        
-        async function saveCode() {
-            const code = editor.getValue();
-            try {
-                const { data, error } = await supabaseClient
-                    .from('code_snippets')
-                    .insert([{ 
-                        code: code,
-                        created_at: new Date().toISOString()
-                    }])
-                    .select();
-
-                if (error) throw error;
-
-                if (data && data[0]) {
-                    const shareUrl = `https://harljo.uk/ide/?id=${data[0].id}`;
-                    output("Code saved! Share URL: " + shareUrl);
-                    await navigator.clipboard.writeText(shareUrl);
-                    output("Share URL copied to clipboard!");
-                }
-            } catch (error) {
-                output("Error saving code: " + error.message, true);
-            }
-        }
-
-        
-        async function shareCode() {
-            await saveCode();
-        }
-
-        
-        async function loadSharedCode() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const id = urlParams.get('id');
-            if (id) {
-                try {
-                    const { data, error } = await supabaseClient
-                        .from('code_snippets')
-                        .select('code')
-                        .eq('id', id)
-                        .single();
-
-                    if (error) throw error;
-                    if (data) {
-                        editor.setValue(data.code);
-                        output("Shared code loaded successfully!");
-                    }
-                } catch (error) {
-                    output("Error loading shared code: " + error.message, true);
-                }
-            }
-        }
-
-        
-        loadSharedCode();
-
+    
     function loadThemeCSS(theme) {
         const themeId = `cm-theme-${theme}`;
         if (!document.getElementById(themeId) && theme !== 'dracula') {
@@ -606,13 +538,9 @@ function output(text, type = 'output') {
 </main>
 
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Harley&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
+    <a style="text-decoration: none; border: none;" rel="me" href="https://fosstodon.org/@hcj">
+        <i style="font-size: xx-large;" class="fab fa-mastodon fa-2xl"></i>
+    </a>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
